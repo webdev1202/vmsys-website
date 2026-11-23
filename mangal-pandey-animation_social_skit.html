@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Barrackpore, 1857: Mangal Pandey</title>
+<link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;600&family=Yatra+One&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f3ece1;--fg:#2a1c14;--panel:#fffaf1;--line:#d9c9b2;--acc:#b5451b;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17110e;--fg:#f1e6d4;--panel:#241a15;--line:#43332a;--acc:#f0883e;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#17110e;--fg:#f1e6d4;--panel:#241a15;--line:#43332a;--acc:#f0883e;color-scheme:dark}
+html,body{margin:0}
+body{background:var(--bg);color:var(--fg);font:400 1rem/1.5 Mukta,system-ui,sans-serif;padding:14px}
+h1{font:400 clamp(1.3rem,3.5vw,2rem) "Yatra One",Georgia,serif;margin:4px auto 12px;max-width:1100px}
+.stage{position:relative;aspect-ratio:16/9;overflow:hidden;border-radius:14px;max-width:1100px;margin:0 auto;background:var(--sky);transition:background 1.6s}
+.s1{--sky:linear-gradient(#f6b26b,#e07a5f 55%,#6d3b4a);--sun:#ffe3a3}
+.s2{--sky:linear-gradient(#e8a24a,#b5653a 55%,#4b2c2c);--sun:#ffd08a}
+.s3{--sky:linear-gradient(#8e2a2a,#5c1d22 55%,#25100f);--sun:#ff6a4d}
+.s4{--sky:linear-gradient(#1c2650,#4b3a6b 60%,#c4693a);--sun:#ffb347}
+.sun{position:absolute;left:12%;top:16%;width:10%;aspect-ratio:1;border-radius:50%;background:var(--sun);box-shadow:0 0 70px var(--sun);transition:all 1.6s}
+.s4 .sun{top:36%;left:72%}
+.bar{position:absolute;left:0;bottom:22%;width:100%;height:30%}
+.ground{position:absolute;left:0;right:0;bottom:0;height:24%;background:linear-gradient(#5a4231,#2e2119)}
+.c{position:absolute;bottom:12%;width:8.2%;transform:translateX(-50%);transition:left 1.8s ease,opacity .5s,transform .4s}
+.c svg{width:100%;display:block;overflow:visible}
+.n{text-align:center;font:600 clamp(7px,1.1vw,13px)/1.1 Mukta,sans-serif;color:#fff;text-shadow:0 1px 3px #000;margin-top:2px}
+.c.dim{opacity:.6}
+.c.talk{transform:translateX(-50%) translateY(-5%) scale(1.1);z-index:5}
+.c.talk svg{animation:bob .5s infinite alternate}
+.c.front{transform:translateX(-50%) translateY(8%) scale(1.5);z-index:9}
+.c.jump svg{animation:bob .35s infinite alternate}
+.ar{transform-origin:44px 48px}
+.talk .ar,.jump .ar{animation:wave .45s infinite alternate}
+@keyframes bob{to{transform:translateY(-4%)}}
+@keyframes wave{to{transform:rotate(-115deg)}}
+.card{position:absolute;inset:0;display:grid;place-content:center;text-align:center;background:rgba(10,6,4,.6);color:#fff;opacity:0;pointer-events:none;padding:0 8%;z-index:20}
+.card.on{animation:card 3.2s forwards}
+.card h2{font:400 clamp(1.3rem,4.2vw,2.8rem) "Yatra One",Georgia,serif;margin:0 0 6px}
+.card p{margin:0;font-size:clamp(.8rem,1.8vw,1.2rem);font-style:italic}
+@keyframes card{0%{opacity:0}14%,78%{opacity:1}100%{opacity:0}}
+.flag{position:absolute;left:50%;top:6%;width:30%;aspect-ratio:3/2;transform:translateX(-50%) scale(0);transition:transform 1s cubic-bezier(.2,1.4,.4,1);background:linear-gradient(#ff9933 33.3%,#fff 33.3% 66.6%,#138808 66.6%);border-radius:3px;z-index:15;box-shadow:0 6px 24px #0008;animation:wv 2s ease-in-out infinite alternate}
+.flag::after{content:"";position:absolute;left:50%;top:50%;width:22%;aspect-ratio:1;transform:translate(-50%,-50%);border:2px solid #000080;border-radius:50%;background:repeating-conic-gradient(#000080 0 4deg,transparent 4deg 15deg)}
+.flag.on{transform:translateX(-50%) scale(1)}
+@keyframes wv{to{skew:0 3deg;filter:brightness(1.08)}}
+.vm{position:absolute;left:0;right:0;top:44%;text-align:center;font:400 clamp(1.4rem,6vw,4rem) "Yatra One",Georgia,serif;color:#fff;text-shadow:0 3px 14px #000;opacity:0;transition:opacity 1s .6s;z-index:16}
+.vm.on{opacity:1}
+.start{position:absolute;inset:0;z-index:30;display:grid;place-items:center;background:rgba(10,6,4,.65)}
+.start button{font:400 clamp(1rem,2.6vw,1.5rem) "Yatra One",Georgia,serif;padding:.7em 1.4em;border:0;border-radius:999px;background:#f28c1d;color:#1b0f08;cursor:pointer}
+.box{max-width:1100px;margin:14px auto 0;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 20px 16px;min-height:112px;position:relative;overflow:hidden}
+.who{font:400 1.1rem "Yatra One",Georgia,serif;color:var(--acc)}
+.txt{font-size:clamp(1rem,2.2vw,1.3rem);line-height:1.5;margin-top:2px}
+.box.nar .txt{font-style:italic}
+.prog{position:absolute;left:0;bottom:0;height:3px;width:0;background:var(--acc)}
+.ctl{max-width:1100px;margin:10px auto 0;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.ctl button{font:600 .95rem Mukta,sans-serif;padding:.45em 1em;border-radius:8px;border:1px solid var(--line);background:var(--panel);color:var(--fg);cursor:pointer}
+.ctl button:focus-visible,.start button:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.ctl span{margin-left:auto;font-size:.9rem;opacity:.75}
+.s5{--sky:linear-gradient(#141a2e,#1d2440 60%,#0c0e18);--sun:#c9d6ff}
+.s6{--sky:linear-gradient(#2a3556,#c98a6a 70%,#f2c48a);--sun:#ffd9a0}
+.s5 .sun{left:78%;top:12%;box-shadow:0 0 40px var(--sun)}
+.s6 .sun{top:44%;left:20%}
+.cell,.gal{display:none;position:absolute}
+.s5 .cell{display:block;left:38%;width:24%;bottom:11%;height:62%;z-index:7;border:5px solid #20242d;border-radius:4px 4px 0 0;background:repeating-linear-gradient(90deg,#3a3f4b 0 5px,transparent 5px 14%)}
+.s5 .cell::before{content:"";position:absolute;inset:0;background:#0007;z-index:-1}
+.s6 .gal{display:block;left:60%;width:22%;bottom:22%;height:52%}
+.gal svg{width:100%;height:100%}
+.fade{position:absolute;inset:0;background:#000;opacity:0;transition:opacity 2s;z-index:18;pointer-events:none}
+.fade.on{opacity:1}
+.c.ghost{opacity:.92}.ghost svg{filter:drop-shadow(0 0 14px #ffd27a)}
+@media (prefers-reduced-motion:reduce){.c svg,.ar,.flag{animation:none!important}}
+</style></head>
+<body>
+<h1>Barrackpore, 1857: Mangal Pandey</h1>
+<div class="stage s1" id="stage">
+  <div class="sun"></div>
+  <svg class="bar" viewBox="0 0 1000 200" preserveAspectRatio="none" aria-hidden="true"><g fill="#2b1a1a" opacity=".85"><rect x="40" y="80" width="260" height="120"/><path d="M30 80 L170 30 L310 80Z"/><rect x="380" y="100" width="220" height="100"/><path d="M370 100 L490 55 L610 100Z"/><rect x="700" y="70" width="280" height="130"/><path d="M690 70 L840 20 L990 70Z"/></g><g fill="#f4c46b" opacity=".7"><rect x="80" y="110" width="16" height="24"/><rect x="140" y="110" width="16" height="24"/><rect x="200" y="110" width="16" height="24"/><rect x="760" y="100" width="16" height="24"/><rect x="830" y="100" width="16" height="24"/><rect x="900" y="100" width="16" height="24"/></g></svg>
+  <div class="ground"></div>
+  <div class="cell"></div>
+  <div class="gal"><svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><g fill="#1a1210"><rect x="8" y="0" width="7" height="100"/><rect x="8" y="0" width="84" height="6"/><path d="M15 6 L15 26 L38 6Z"/><rect x="0" y="92" width="40" height="8"/></g></svg></div>
+  <div class="fade" id="fade"></div>
+  <div class="flag" id="flag"></div><div class="vm" id="vm">VANDE MATARAM!</div>
+  <div class="card" id="card"><div><h2 id="ct"></h2><p id="cd"></p></div></div>
+  <div class="start" id="start"><button id="go">Play the animation</button></div>
+</div>
+<div class="box" id="box"><div class="who" id="who">&nbsp;</div><div class="txt" id="txt">Press play to begin.</div><div class="prog" id="bar"></div></div>
+<div class="ctl">
+  <button id="prev">Previous</button><button id="pp">Pause</button><button id="next">Next</button><button id="rs">Restart</button><button id="vo">Voice: off</button>
+  <span id="info"></span>
+</div>
+<script>
+const N={N:"Narrator",R:"Ram Singh",K:"Karim Khan",G:"Gopal",H:"Hari",M:"Mangal Pandey",I:"Ishwari Prasad",W:"Hewson",B:"Baugh",S:"British Soldier",A:"All together"};
+// coat, hat, skin, trousers, british?
+const C={R:["#3f6b4f","#efe6d2","#c68a5b","#eee"],K:["#2f5d8a","#f5f5f5","#b9784c","#eee"],G:["#7a4a2b","#c0392b","#c68a5b","#eee"],H:["#5b4a7a","#e8b04a","#a96f45","#eee"],M:["#b8452a","#f28c1d","#bd7d52","#eee"],I:["#1f3a5f","#d9d9d9","#b9784c","#eee"],W:["#b3202a","#1a1a1a","#f0c9a8","#2a2f45",1],B:["#b3202a","#1a1a1a","#f2d0b0","#2a2f45",1],S:["#b3202a","#1a1a1a","#e9bf9c","#2a2f45",1]};
+const P1={R:14,K:30,M:50,G:68,H:84},P2={R:6,H:16,K:26,G:36,M:48,I:58,S:70,W:80,B:91},PA={R:6,H:16,K:26,G:36,I:46,M:62,S:72,W:82,B:92},PC={M:50,S:78,W:91},PD={M:40,S:30,W:52,B:58},P4={R:14,K:28,G:42,H:56,I:70};
+const S=[
+{t:"Scene 1: The Growing Anger",d:"Barrackpore military grounds, 1857. Four Indian soldiers discuss the new rifle cartridges.",k:"s1",p:P1,L:[
+["N","It is the year 1857. India is under British rule, and anger is growing among Indian soldiers. A new rifle cartridge has caused great concern. It is rumoured to be greased with cow and pig fat, hurting the religious beliefs of both Hindus and Muslims."],
+["R","Have you heard about the new cartridges? They say they are greased with cow fat!"],
+["K","And pig fat! How can they expect us to use something that goes against our religious beliefs?"],
+["G","We have served the British faithfully, yet they don’t even respect our traditions!"],
+["H","First, they ignore our beliefs. What will they take away from us next?"],
+["M","Brothers, this is not just about cartridges. It is about our dignity, our rights and our motherland!"],
+["R","But Mangal, what can ordinary soldiers like us do against such powerful rulers?"],
+["M","Every great change begins when someone dares to speak up. If we remain silent today, who will speak for us tomorrow?"],
+["K","You are right, Mangal. We cannot keep living in fear."]]},
+{t:"Scene 2: The Confrontation",d:"The British officers enter. The soldiers immediately become alert.",k:"s2",p:P2,L:[
+["S","Attention! The officers have arrived. Everyone return to your duties!"],
+["W","What is all this gathering about? Why are the soldiers not working?"],
+["M","We are tired of being treated unfairly. We have our own beliefs and deserve to be respected!"],
+["B","Watch your words, soldier! Your duty is to obey orders, not question them."],
+["M","We are soldiers, not slaves! Does serving the British mean giving up our dignity?"],
+["W","How dare you speak to your officers like that? Do you realise the consequences?"],
+["M","I know exactly what I am saying. You cannot force us to disrespect our own faith!"],
+["I","Mangal, stop! Think carefully. You could get yourself into serious trouble."],
+["M","Jemadar, how long must we stay quiet? How long must we watch our people being insulted?"],
+["G","He speaks the truth! We have feelings too!"],
+["K","Our religions may be different, but our struggle is the same."]]},
+{t:"Scene 3: The Defiance",d:"The tension rises. The British officers become angry.",k:"s3",p:P2,L:[
+["B","Enough! This behaviour will not be tolerated. Arrest him immediately!"],
+["S","Yes, sir! But the other soldiers are hesitant to move."],
+["W","What? Are you all refusing to follow orders?"],
+["H","We are not asking for anything unreasonable. We only want respect!"],
+["R","We have served this army for years. Is this how we are treated in return?"],
+["I","Everyone, remain calm! Do not let anger take control."],
+["M","I am not afraid to stand up for what is right. You may threaten me, but you cannot take away my courage!"],
+["B","You will regret challenging the British Empire!"],
+["M","And you will remember the day Indians decided they would no longer accept injustice!"]]},
+{t:"Scene 4: The Arrest",d:"Hewson and Baugh order the guards to seize Mangal. The soldiers watch helplessly.",k:"s3",p:PA,L:[
+["B","Seize him! Take him to the guardhouse at once!"],
+["S","Yes, sir! Come along, Pandey!"],
+["M","You can bind my hands, but you cannot bind my spirit!"],
+["G","Mangal! Let him go!"],
+["I","Stay back, all of you! Anger will only make things worse."],
+["N","The guards marched Mangal Pandey away, and the heavy iron door of the cell closed behind him."]]},
+{t:"Scene 5: The Cell",d:"Night falls. Mangal Pandey is locked in a prison cell, watched by a British guard.",k:"s5",p:PC,L:[
+["N","Mangal Pandey was locked in a dark prison cell to await the verdict of the British court."],
+["S","No more speeches, Pandey. Sit quietly in there."],
+["M","I have no regret. I only did what my conscience demanded."],
+["S","The court has decided your fate. The sentence is death."],
+["M","Then let it be. My body may be in a cell, but my heart is with my countrymen."]]},
+{t:"Scene 6: The Final Dawn",d:"8 April 1857, at dawn. Mangal Pandey is led to the parade ground.",k:"s6",p:PD,L:[
+["N","On the morning of 8 April 1857, Mangal Pandey was led out to the parade ground."],
+["B","The sentence will now be carried out."],
+["M","I am ready. Remember this day, for it will not be forgotten.","w"],
+["N","He stood calm and fearless till the very end.","b"],
+["N","The British thought they had ended the spark. They had only lit it."]]},
+{t:"Scene 7: The Legacy",d:"Days later, the soldiers gather in his memory. Mangal’s spirit rises one last time.",k:"s4",p:P4,L:[
+["N","The confrontation at Barrackpore became one of the early sparks of the Revolt of 1857. Mangal Pandey was arrested and executed on 8 April 1857. His actions became a symbol of courage and resistance against British rule."],
+["R","They may have taken Mangal away, but they cannot take away his words."],
+["K","His courage has given us hope."],
+["G","One man’s voice has made people question an entire empire."],
+["H","We must remember that unity is our greatest strength."],
+["I","History will remember those who stood up against injustice."],
+["M","You may silence one man, but you cannot silence the desire of an entire nation to be free!","f"],
+["N","And so, the events at Barrackpore became an important part of India’s struggle for independence. Mangal Pandey’s name would live on in history."],
+["A","VANDE MATARAM!","a"]]}];
+
+function fig(c){const[co,h,sk,tr,br]=c;
+return `<svg viewBox="0 0 60 130"><rect x="20" y="82" width="8" height="38" fill="${tr}"/><rect x="32" y="82" width="8" height="38" fill="${tr}"/><rect x="18" y="116" width="12" height="8" rx="2" fill="#1a1210"/><rect x="30" y="116" width="12" height="8" rx="2" fill="#1a1210"/>
+<path d="M15 46 Q30 36 45 46 L47 86 L13 86Z" fill="${co}"/><rect x="13" y="68" width="34" height="5" fill="${br?'#f3f3f3':'#e9a23b'}"/>
+<line x1="16" y1="50" x2="10" y2="78" stroke="${co}" stroke-width="7" stroke-linecap="round"/><g class="ar"><line x1="44" y1="50" x2="50" y2="78" stroke="${co}" stroke-width="7" stroke-linecap="round"/><circle cx="50" cy="80" r="3.6" fill="${sk}"/></g>
+<circle cx="10" cy="80" r="3.6" fill="${sk}"/><circle cx="30" cy="30" r="11" fill="${sk}"/>
+${br?`<rect x="20" y="4" width="20" height="17" rx="2" fill="${h}"/><rect x="18" y="19" width="24" height="3" fill="#000"/><path d="M22 36 Q30 41 38 36" stroke="#222" fill="none" stroke-width="1.6"/>`:`<ellipse cx="30" cy="19" rx="14" ry="9" fill="${h}"/><path d="M23 37 Q30 33 37 37" stroke="#222" fill="none" stroke-width="2.4"/>`}
+<circle cx="26" cy="29" r="1.4" fill="#222"/><circle cx="34" cy="29" r="1.4" fill="#222"/></svg>`}
+
+const $=id=>document.getElementById(id),st=$("stage"),els={};
+Object.keys(C).forEach(k=>{const d=document.createElement("div");d.className="c";d.innerHTML=fig(C[k])+`<div class="n">${N[k]}</div>`;d.style.left=(C[k][4]?118:-18)+"%";st.appendChild(d);els[k]=d});
+const steps=[];S.forEach((s,si)=>{steps.push({s,si,title:1});s.L.forEach((l,li)=>steps.push({s,si,l,li}))});
+let i=-1,tm=null,playing=false,vo=false;
+function say(t,sp){try{speechSynthesis.cancel();if(!vo||!playing||!t)return;const u=new SpeechSynthesisUtterance(t);u.lang="en-IN";u.rate=.92;u.pitch=({W:.7,B:.6,S:.8,N:.9,I:.8,M:1.1,H:1.25,R:1,K:.95,G:1.05})[sp]||1;speechSynthesis.speak(u)}catch(e){}}
+function scene(s){st.className="stage "+s.k;$("fade").classList.remove("on");$("flag").classList.remove("on");$("vm").classList.remove("on");
+ Object.keys(els).forEach(k=>{els[k].style.left=(s.p[k]??(C[k][4]?118:-18))+"%";els[k].className="c"});
+ $("ct").textContent=s.t;$("cd").textContent=s.d;const c=$("card");c.classList.remove("on");void c.offsetWidth;c.classList.add("on")}
+function show(n){clearTimeout(tm);i=Math.max(0,Math.min(steps.length-1,n));const x=steps[i];let d;
+ if(x.title){say("");scene(x.s);$("who").innerHTML="&nbsp;";$("txt").textContent=x.s.d;$("box").className="box nar";d=3300}
+ else{const[sp,tx,f]=x.l;Object.keys(els).forEach(k=>{els[k].className="c"+(sp==="A"?" jump":k===sp?" talk":" dim")});
+  if(f==="f"){els.M.classList.add("front","ghost");els.M.style.left="50%"}
+  if(f==="b")$("fade").classList.add("on");
+  if(f==="w")els.M.style.left="68%";
+  if(f==="a"){$("flag").classList.add("on");$("vm").classList.add("on")}
+  $("who").textContent=N[sp];$("txt").textContent=tx;$("box").className="box"+(sp==="N"?" nar":"");say(tx,sp);d=Math.max(2800,tx.length*(vo?78:62))}
+ $("info").textContent="Scene "+(x.si+1)+" of "+S.length;
+ const b=$("bar");b.style.transition="none";b.style.width="0";void b.offsetWidth;
+ if(playing){b.style.transition=`width ${d}ms linear`;b.style.width="100%";
+  tm=setTimeout(()=>{if(i<steps.length-1)show(i+1);else{playing=false;$("pp").textContent="Replay";b.style.transition="none";b.style.width="0"}},d)}}
+function setPlay(p){playing=p;$("pp").textContent=p?"Pause":"Play";show(i<0?0:i)}
+$("go").onclick=()=>{$("start").style.display="none";setPlay(true)};
+$("pp").onclick=()=>{if($("pp").textContent==="Replay"){i=0}setPlay(!playing||$("pp").textContent==="Replay")};
+$("vo").onclick=()=>{vo=!vo;$("vo").textContent="Voice: "+(vo?"on":"off");if(playing)show(i);else say("")};
+$("next").onclick=()=>show(i+1);$("prev").onclick=()=>show(i-1);
+$("rs").onclick=()=>{$("start").style.display="none";i=0;setPlay(true)};
+addEventListener("keydown",e=>{if(e.key==="ArrowRight")show(i+1);if(e.key==="ArrowLeft")show(i-1);if(e.key===" "){e.preventDefault();$("pp").click()}});
+</script>
+</body></html>
